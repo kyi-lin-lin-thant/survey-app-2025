@@ -1,0 +1,162 @@
+<h2>Survey: Cloud Skills & Web Careers</h2>
+
+<form method="POST" action="/submit">
+
+    <!-- SECTION 1: Demographics & Background -->
+    <h3>1. What is your current professional status?</h3>
+    <input type="radio" name="status" value="Student" required> Student <br>
+    <input type="radio" name="status" value="Intern/Graduate"> Intern / Graduate Developer <br>
+    <input type="radio" name="status" value="Junior Dev"> Junior Web Developer <br>
+    <input type="radio" name="status" value="Mid Dev"> Mid-level Web Developer <br>
+    <input type="radio" name="status" value="Senior Dev"> Senior Developer / Lead Engineer <br>
+    <input type="radio" name="status" value="Other" id="statusOtherRadio"> Other (please specify): <br>
+    <input type="text" name="status_other" id="statusOtherInput" style="display:none; margin-top:5px;">
+
+    <h3>2. How many years of experience do you have in web development (including internships)?</h3>
+    <input type="radio" name="experience" value="Less than 1" required> Less than 1 year <br>
+    <input type="radio" name="experience" value="1-2"> 1-2 years <br>
+    <input type="radio" name="experience" value="3-5"> 3-5 years <br>
+    <input type="radio" name="experience" value="6-10"> 6-10 years <br>
+    <input type="radio" name="experience" value="More than 10"> More than 10 years <br>
+  
+    <h3>3. Which region are you currently working/studying in?</h3>
+    <input type="radio" name="country" value="UK" required> UK <br>
+    <input type="radio" name="country" value="EU"> EU <br>
+    <input type="radio" name="country" value="North America"> North America <br>
+    <input type="radio" name="country" value="Asia"> Asia <br>
+    <input type="radio" name="country" value="Other" id="countryOtherRadio"> Other (please specify): <br>
+    <input type="text" name="country_other" id="countryOtherInput" style="display:none; margin-top:5px;">
+
+    <!-- SECTION 2: Cloud Skills & Usage -->
+    <h3>4. Which cloud platforms are you familiar with? (Select all that apply)</h3>
+    <input type="checkbox" name="cloud_platforms[]" value="AWS"> Amazon Web Services (AWS) <br>
+    <input type="checkbox" name="cloud_platforms[]" value="Azure"> Microsoft Azure <br>
+    <input type="checkbox" name="cloud_platforms[]" value="GCP"> Google Cloud Platform (GCP) <br>
+    <input type="checkbox" name="cloud_platforms[]" value="DigitalOcean"> DigitalOcean / Linode <br>
+    <input type="checkbox" name="cloud_platforms[]" value="None"> I’m not familiar with any cloud platforms <br>
+
+    <h3>5. Which of the following cloud-related skills do you currently have? (Select all that apply)</h3>
+    <input type="checkbox" name="cloud_skills[]" value="Basic Deployment"> Basic cloud deployment <br>
+    <input type="checkbox" name="cloud_skills[]" value="CI/CD"> CI/CD pipelines <br>
+    <input type="checkbox" name="cloud_skills[]" value="Docker"> Docker or containerization <br>
+    <input type="checkbox" name="cloud_skills[]" value="Kubernetes"> Kubernetes <br>
+    <input type="checkbox" name="cloud_skills[]" value="Serverless"> Serverless functions (e.g., AWS Lambda) <br>
+    <input type="checkbox" name="cloud_skills[]" value="API Gateway"> API gateway / load balancers <br>
+    <input type="checkbox" name="cloud_skills[]" value="Cloud Databases"> Cloud-based databases <br>
+    <input type="checkbox" name="cloud_skills[]" value="IAM"> Identity and access management (IAM) <br>
+    <input type="checkbox" name="cloud_skills[]" value="None"> None of the above <br>
+
+    <h3>6. Where did you learn your cloud computing skills? (Select all that apply)</h3>
+    <input type="checkbox" name="cloud_learning[]" value="University"> University courses <br>
+    <input type="checkbox" name="cloud_learning[]" value="Online Courses"> Online courses (e.g., Coursera, Udemy) <br>
+    <input type="checkbox" name="cloud_learning[]" value="On-the-job"> On-the-job training <br>
+    <input type="checkbox" name="cloud_learning[]" value="Self-taught"> Self-taught via documentation/tutorials <br>
+    <input type="checkbox" name="cloud_learning[]" value="None"> I don’t have any cloud skills yet <br>
+
+    <!-- SECTION 3: Industry Trends & Career Impact -->
+    <h3>7. How important do you think cloud computing skills are for modern web developers?</h3>
+    <input type="radio" name="cloud_importance" value="Not important" required> Not important <br>
+    <input type="radio" name="cloud_importance" value="Slightly important"> Slightly important <br>
+    <input type="radio" name="cloud_importance" value="Moderately important"> Moderately important <br>
+    <input type="radio" name="cloud_importance" value="Very important"> Very important <br>
+    <input type="radio" name="cloud_importance" value="Essential"> Essential <br>
+
+    <h3>Why do you think this level of importance applies?</h3>
+    <textarea name="importance_reason" rows="4" cols="50"></textarea><br>
+
+
+    <h3>8. To what extent do you agree with the statement: “Cloud computing skills improve job prospects in web development”?</h3>
+    <input type="radio" name="job_prospect_agreement" value="Strongly disagree" required> Strongly disagree <br>
+    <input type="radio" name="job_prospect_agreement" value="Disagree"> Disagree <br>
+    <input type="radio" name="job_prospect_agreement" value="Neutral"> Neutral <br>
+    <input type="radio" name="job_prospect_agreement" value="Agree"> Agree <br>
+    <input type="radio" name="job_prospect_agreement" value="Strongly agree"> Strongly agree <br>
+
+    <h3>Why did you choose this level of agreement?</h3>
+    <textarea name="job_prospect_reason" rows="4" cols="50"></textarea><br>
+  
+    
+    <h3>9. Have cloud computing skills helped you get hired, promoted, or given more responsibilities?</h3>
+    <input type="radio" name="cloud_career_impact" value="Yes, significantly" required> Yes, significantly <br>
+    <input type="radio" name="cloud_career_impact" value="Yes, somewhat"> Yes, somewhat <br>
+    <input type="radio" name="cloud_career_impact" value="No noticeable impact"> No noticeable impact <br>
+    <input type="radio" name="cloud_career_impact" value="Not applicable"> Not applicable / I do not work with cloud skills <br>
+
+    <h3>Why do you think your experience turned out this way?</h3>
+    <textarea name="cloud_career_reason" rows="4" cols="50"></textarea><br>
+
+
+    <h3>10. In your current (or most recent) role, how often do you use cloud technologies in your workflow?</h3>
+    <input type="radio" name="cloud_usage_frequency" value="Daily" required> Daily <br>
+    <input type="radio" name="cloud_usage_frequency" value="Weekly"> Weekly <br>
+    <input type="radio" name="cloud_usage_frequency" value="Occasionally"> Occasionally <br>
+    <input type="radio" name="cloud_usage_frequency" value="Rarely"> Rarely <br>
+    <input type="radio" name="cloud_usage_frequency" value="Never"> Never <br>
+
+    <h3>Why do you use them with this frequency?</h3>
+    <textarea name="cloud_usage_reason" rows="4" cols="50"></textarea><br>
+
+
+    <h3>11. Do you think cloud skills will become mandatory for web developers in the next 5 years?</h3>
+    <input type="radio" name="cloud_mandatory" value="Definitely not" required> Definitely not <br>
+    <input type="radio" name="cloud_mandatory" value="Unlikely"> Unlikely <br>
+    <input type="radio" name="cloud_mandatory" value="Neutral"> Neutral <br>
+    <input type="radio" name="cloud_mandatory" value="Likely"> Likely <br>
+    <input type="radio" name="cloud_mandatory" value="Definitely"> Definitely <br>
+
+    <h3>Why do you think this is the case?</h3>
+    <textarea name="cloud_mandatory_reason" rows="4" cols="50"></textarea><br>
+
+    <!-- SECTION 4: Skill Gaps & Education -->
+    <h3>12. Do you feel that universities are adequately teaching cloud computing skills to prepare web developers for industry roles?</h3>
+    <input type="radio" name="edu_adequacy" value="Strongly disagree" required> Strongly disagree <br>
+    <input type="radio" name="edu_adequacy" value="Disagree"> Disagree <br>
+    <input type="radio" name="edu_adequacy" value="Neutral"> Neutral <br>
+    <input type="radio" name="edu_adequacy" value="Agree"> Agree <br>
+    <input type="radio" name="edu_adequacy" value="Strongly agree"> Strongly agree <br>
+
+    <h3>Why do you feel this way?</h3>
+    <textarea name="edu_adequacy_reason" rows="4" cols="50"></textarea><br>
+
+    <h3>13. Which of the following would help bridge the gap between education and industry needs in cloud computing? (Select all that apply)</h3>
+    <input type="checkbox" name="edu_improvements[]" value="More practical projects using cloud platforms"> More practical projects using cloud platforms <br>
+    <input type="checkbox" name="edu_improvements[]" value="Partnerships between universities and tech companies"> Partnerships between universities and tech companies <br>
+    <input type="checkbox" name="edu_improvements[]" value="Access to free cloud credits"> Access to free cloud credits <br>
+    <input type="checkbox" name="edu_improvements[]" value="Certification preparation (e.g., AWS Certified Developer)"> Certification preparation (e.g., AWS Certified Developer) <br>
+    <input type="checkbox" name="edu_improvements[]" value="Guest lectures or workshops from industry professionals"> Guest lectures or workshops from industry professionals <br>
+    <input type="checkbox" name="edu_improvements[]" value="I believe current education is sufficient"> I believe current education is sufficient <br>
+
+    <h3>Why do you think these options would be effective (or not needed)?</h3>
+    <textarea name="edu_improvements_reason" rows="4" cols="50"></textarea><br>
+
+    <!-- SECTION 5: Open Feedback (Optional) -->
+    <h3>14. In your opinion, what are the most valuable cloud skills for web developers today?</h3>
+    <textarea name="valuable_cloud_skills" rows="4" cols="50" placeholder="Your answer here..."></textarea><br>
+
+    <h3>15. Do you have any suggestions on how universities can better prepare students for cloud-integrated web development careers?</h3>
+    <textarea name="university_suggestions" rows="4" cols="50" placeholder="Your answer here..."></textarea><br>
+  
+  <button type="submit">Submit</button>
+</form>
+
+<!-- JS for "Other" options -->
+<script>
+function toggleOther(radioName, otherRadioId, otherInputId) {
+    document.querySelectorAll(`input[name="${radioName}"]`).forEach(function(radio) {
+        radio.addEventListener('change', function() {
+            const otherText = document.getElementById(otherInputId);
+            if (document.getElementById(otherRadioId).checked) {
+                otherText.style.display = 'inline-block';
+                otherText.required = true;
+            } else {
+                otherText.style.display = 'none';
+                otherText.required = false;
+                otherText.value = '';
+            }
+        });
+    });
+}
+
+toggleOther("status", "statusOtherRadio", "statusOtherInput");
+toggleOther("country", "countryOtherRadio", "countryOtherInput");
+</script>
