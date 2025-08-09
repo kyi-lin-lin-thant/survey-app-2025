@@ -1,0 +1,98 @@
+/* Variables (CSS custom properties) */
+    :root {
+      --font-family: Arial, sans-serif;
+      --color-primary: #005f73;
+      --color-secondary: #0a9396;
+      --color-bg: #e9f1f7;
+      --color-text: #001219;
+      --color-border: #94a1b2;
+      --spacing-small: 8px;
+      --spacing-medium: 16px;
+      --spacing-large: 24px;
+      --input-padding: 8px 12px;
+      --input-border-radius: 4px;
+      --textarea-min-height: 80px;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      margin: 0;
+      padding: var(--spacing-large);
+      line-height: 1.5;
+    }
+
+    h1, h3 {
+      color: var(--color-primary);
+      margin-bottom: var(--spacing-small);
+    }
+
+    form {
+      background: white;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: var(--spacing-large);
+      border-radius: var(--input-border-radius);
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: var(--spacing-small);
+      font-weight: 600;
+    }
+
+    /* Grouping each question block */
+    .question-block {
+      margin-bottom: var(--spacing-large);
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: var(--input-padding);
+      border: 1px solid var(--color-border);
+      border-radius: var(--input-border-radius);
+      font-size: 1rem;
+      font-family: inherit;
+      box-sizing: border-box;
+      resize: vertical;
+    }
+
+    textarea {
+      min-height: var(--textarea-min-height);
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      margin-right: 8px;
+      vertical-align: middle;
+      cursor: pointer;
+    }
+
+    /* Hidden input by default */
+    .hidden-input {
+      display: none;
+      margin-top: var(--spacing-small);
+    }
+
+    /* Show inputs when active */
+    .visible {
+      display: block;
+    }
+
+    button[type="submit"] {
+      background-color: var(--color-secondary);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 1rem;
+      border-radius: var(--input-border-radius);
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+      background-color: var(--color-primary);
+    }
