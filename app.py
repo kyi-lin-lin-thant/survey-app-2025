@@ -49,8 +49,12 @@ class Response(db.Model):
 with app.app_context():
     db.create_all()
 
-# Home page
+# Consent page & Home page
 @app.route('/')
+def consent():
+    return render_template('consent.html')
+
+@app.route('/survey')
 def index():
     return render_template('survey.html')
 
@@ -110,11 +114,11 @@ def submit():
     db.session.add(response)
     db.session.commit()
     
-    return redirect('/thankyou')
+    return redirect('/thanks')
 
-@app.route('/thankyou')
-def thankyou():
-    return "Thank you for your participation!"
+@app.route('/thanks')
+def thanks():
+    return render_template('/thanks.html')
 
 # Download and review data
 @app.route('/download')

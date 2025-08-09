@@ -1,6 +1,22 @@
-// JavaScript to toggle 'Other' text inputs based on radio selection
 
     document.addEventListener("DOMContentLoaded", function () {
+        // toggle work for consent form button 
+        const checkboxes = document.querySelectorAll('#consentForm input[type="checkbox"]');
+        const btn = document.getElementById('proceedBtn');
+        function updateButtonState() {
+            const allChecked = [...checkboxes].every(c => c.checked);
+            btn.disabled = !allChecked;
+        }
+        checkboxes.forEach(cb => {
+            cb.addEventListener('change', updateButtonState);
+        });
+        btn.addEventListener('click', (e) => {
+            e.preventDefault(); 
+            window.location.href = "survey"; 
+        });
+        updateButtonState(); 
+
+        // toggle 'Other' text inputs based on radio selection
         const statusOtherRadio = document.getElementById("statusOtherRadio");
         const statusOtherInput = document.getElementById("statusOtherInput");
 

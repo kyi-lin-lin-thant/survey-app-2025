@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Participant Consent Form</title>
+
+  <!-- Link CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+  <!-- Link JS -->
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</head>
+<body>
+  <h1 class="text-center">Participant Consent Form</h1>
+
+  <!-- Intro about you and your study -->
+  <div class="intro-section">
+    <h2 class="text-center">About the Research</h2>
+    <form>
+      <p>Hello! My name is <strong>Kyi Lin Lin Thant</strong>. I am currently undertaking my MSc Computing dissertation at Sheffield Hallam University. The purpose of this survey is to gather insights from professionals and developers about the importance of cloud skills in web development careers.</p>
+      <p>Your participation is entirely voluntary and anonymous. The data collected will contribute to academic research on industry trends and skills development in cloud computing.</p>
+      <p>Thank you for your valuable time and insights!</p>
+    </form>
+  </div>
+
+  <!-- Consent statements -->
+  <div class="consent-section">
+    <h2 class="text-center">Please read the consent statements below:</h2>
+    <form id="consentForm" method="GET" action="/survey">
+      <ul>
+        <li>
+          <input type="checkbox" id="consent1" required>
+          I have read and understood the information about this study.
+        </li>
+        <li>
+          <input type="checkbox" id="consent2" required>
+          I understand I can withdraw at any time without penalty.
+        </li>
+        <li>
+          <input type="checkbox" id="consent3" required>
+          I agree to participate under the terms of confidentiality.
+        </li>
+        <li>
+          <input type="checkbox" id="consent4" required>
+          I consent to anonymized data being used for research purposes.
+        </li>
+      </ul>
+      <button type="submit" disabled id="proceedBtn">Proceed to Survey</button>
+    </form>
+  </div>
+</body>
+</html>
