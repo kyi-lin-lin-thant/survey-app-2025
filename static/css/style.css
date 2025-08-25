@@ -79,7 +79,7 @@
 
     /* Show inputs when active */
     .visible {
-      display: block;
+      display: inline-block;
     }
 
     button[type="submit"] {
