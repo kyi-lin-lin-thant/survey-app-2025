@@ -4,3 +4,5 @@ flask_migrate
 python-dotenv
 psycopg[binary]
 gunicorn
+
+psycopg2-binary
