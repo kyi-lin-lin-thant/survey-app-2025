@@ -15,24 +15,22 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'dev-secret-key')
 
 # --- Database config ---
-DATABASE_URL = os.environ.get("DATABASE_URL") or os.environ.get("EXTERNAL_DATABASE_URL") or "sqlite:///instance/responses.db"
+DDATABASE_URL = os.environ.get("DATABASE_URL") or os.environ.get("EXTERNAL_DATABASE_URL") or "sqlite:///instance/responses.db"
 
-# Normalize old scheme
+# 1) Normalize old scheme
 if DATABASE_URL.startswith("postgres://"):
     DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
 
+# 2) Force psycopg v3 driver if we're on Postgres and driver not specified
+if DATABASE_URL.startswith("postgresql://") and "+psycopg" not in DATABASE_URL and "+psycopg2" not in DATABASE_URL:
+    DATABASE_URL = DATABASE_URL.replace("postgresql://", "postgresql+psycopg://", 1)
+
 app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-# Connection robustness + SSL for hosted Postgres
-engine_opts = {
-    "pool_pre_ping": True,          
-    "pool_recycle": 1800,           
-    "connect_args": {}
-}
-if DATABASE_URL.startswith("postgresql://") and "localhost" not in DATABASE_URL:
+# Optional but recommended on Heroku
+engine_opts = {"pool_pre_ping": True, "connect_args": {}}
+if DATABASE_URL.startswith("postgresql+psycopg://") and "localhost" not in DATABASE_URL:
     engine_opts["connect_args"]["sslmode"] = "require"
-
 app.config['SQLALCHEMY_ENGINE_OPTIONS'] = engine_opts
 
 db = SQLAlchemy(app)
