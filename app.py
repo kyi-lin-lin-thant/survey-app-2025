@@ -1,6 +1,7 @@
 import os
 from dotenv import load_dotenv
 load_dotenv()
+
 from flask import Flask, render_template, request, redirect, Response as FlaskResponse, abort
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
@@ -10,24 +11,29 @@ from io import StringIO
 
 app = Flask(__name__)
 
-# Secrets
+# --- Secrets ---
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'dev-secret-key')
 
-# Database config
-DATABASE_URL = os.environ.get("DATABASE_URL") or os.environ.get("EXTERNAL_DATABASE_URL") or "sqlite:///responses.db"
+# --- Database config ---
+DATABASE_URL = os.environ.get("DATABASE_URL") or os.environ.get("EXTERNAL_DATABASE_URL") or "sqlite:///instance/responses.db"
 
-# Heroku can provide postgres:// — SQLAlchemy expects postgresql://
+# Normalize old scheme
 if DATABASE_URL.startswith("postgres://"):
     DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-# If we're on a network Postgres, require SSL
+# Connection robustness + SSL for hosted Postgres
+engine_opts = {
+    "pool_pre_ping": True,          
+    "pool_recycle": 1800,           
+    "connect_args": {}
+}
 if DATABASE_URL.startswith("postgresql://") and "localhost" not in DATABASE_URL:
-    app.config.setdefault('SQLALCHEMY_ENGINE_OPTIONS', {})
-    app.config['SQLALCHEMY_ENGINE_OPTIONS'].setdefault("connect_args", {})
-    app.config['SQLALCHEMY_ENGINE_OPTIONS']["connect_args"].setdefault("sslmode", "require")
+    engine_opts["connect_args"]["sslmode"] = "require"
+
+app.config['SQLALCHEMY_ENGINE_OPTIONS'] = engine_opts
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
